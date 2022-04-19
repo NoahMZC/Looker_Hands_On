@@ -5,6 +5,7 @@ view: station_type {
   dimension: station_cd {
     type: string
     sql: ${TABLE}.station_cd ;;
+    label: "역 번호"
   }
 
   dimension: station_nm {

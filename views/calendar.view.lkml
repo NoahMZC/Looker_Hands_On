@@ -20,11 +20,13 @@ view: calendar {
   dimension: dt_day {
     type: string
     sql: ${TABLE}.dt_day ;;
+    label: "요일"
   }
 
   dimension: holiday {
     type: string
     sql: ${TABLE}.holiday ;;
+    label: "휴일"
   }
 
   measure: count {
