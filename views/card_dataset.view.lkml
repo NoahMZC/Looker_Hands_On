@@ -29,6 +29,12 @@ view: card_dataset {
     label: "유동인원수"
   }
 
+  measure: sum_foot_traffic_cnt{
+    type :  sum
+    sql: ${TABLE}.foot_traffic_cnt ;;
+    label: "합산 유동인원수"
+  }
+
   dimension: getoff_passenger_cnt {
     type: number
     sql: ${TABLE}.getoff_passenger_cnt ;;
