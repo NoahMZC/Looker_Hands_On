@@ -41,6 +41,19 @@ view: card_dataset {
     label: "승차인원수"
   }
 
+  measure: sum_foot_traffic_cnt{
+    type :  sum
+    sql: ${TABLE}.foot_traffic_cnt ;;
+    label: "합산 유동인원수"
+  }
+
+  measure: avg_foot_traffic_cnt{
+    type :  average
+    sql: ${TABLE}.foot_traffic_cnt ;;
+    label: "평균 유동인원수"
+  }
+
+
   dimension: station_nm {
     type: string
     sql: ${TABLE}.station_nm ;;
@@ -57,4 +70,11 @@ view: card_dataset {
     type: count
     drill_fields: []
   }
+
+  # measure: avg_card_dataset_sum_foot_traffic_cnt {
+  #   type: average
+  #   label: "전체역 합산 유동인원수의 평균"
+  #   sql: all_station.avg_card_dataset_sum_foot_traffic_cnt ;;
+  # }
+
 }
