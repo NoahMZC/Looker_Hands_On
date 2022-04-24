@@ -1,10 +1,11 @@
-view: subway_dataset {
-  sql_table_name: `DAO3_looker.subway_dataset`
+view: testing {
+  sql_table_name: `DAO3_looker.card_dataset`
     ;;
 
   dimension: clean_transported_cnt {
     type: number
     sql: ${TABLE}.clean_transported_cnt ;;
+    label: "순수송인원수"
   }
 
   dimension_group: dt {
@@ -22,39 +23,46 @@ view: subway_dataset {
     sql: ${TABLE}.dt ;;
   }
 
+  dimension: test{
+    type: date
+    datatype: date
+    sql: station_type.card_dataset_dt_date ;;
+  }
+
   dimension: foot_traffic_cnt {
     type: number
     sql: ${TABLE}.foot_traffic_cnt ;;
+    label: "유동인원수"
+  }
+
+  measure: sum_foot_traffic_cnt{
+    type :  sum
+    sql: ${TABLE}.foot_traffic_cnt ;;
+    label: "합산 유동인원수"
   }
 
   dimension: getoff_passenger_cnt {
     type: number
     sql: ${TABLE}.getoff_passenger_cnt ;;
+    label: "하차인원수"
   }
 
   dimension: passenger_cnt {
     type: number
     sql: ${TABLE}.passenger_cnt ;;
+    label: "승차인원수"
   }
 
-  dimension: passenger_type_cd {
+  dimension: station_nm {
     type: string
-    sql: ${TABLE}.passenger_type_cd ;;
+    sql: ${TABLE}.station_nm ;;
+    label: "역 이름"
   }
 
-  dimension: station_cd {
+  dimension: subway_line_nm {
     type: string
-    sql: ${TABLE}.station_cd ;;
-  }
-
-  dimension: subway_line_cd {
-    type: string
-    sql: ${TABLE}.subway_line_cd ;;
-  }
-
-  dimension: tm_range_cd {
-    type: string
-    sql: ${TABLE}.tm_range_cd ;;
+    sql: ${TABLE}.subway_line_nm ;;
+    label: "노선명"
   }
 
   measure: count {
